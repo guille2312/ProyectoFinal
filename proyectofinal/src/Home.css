@@ -1,0 +1,41 @@
+html body {
+  background-color: #5F5F5F;
+  color: white;
+
+}
+body {
+  overflow-x: hidden;
+}
+
+#login{
+color: white;
+font-size: larger;
+margin-right: 1em;
+}
+.button {
+
+  margin-right:50px }
+
+#texto{
+  margin-right:10px
+}
+
+#estadisticas{
+
+  margin-top: 5%;
+  margin-left: auto;
+  
+}
+
+#anio{
+  width: 200px
+}
+
+.td {
+  color: white;
+} 
+
+#entrarChat{
+  margin-left: 50%;
+  margin-top:14%;
+}
