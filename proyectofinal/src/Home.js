@@ -1,6 +1,7 @@
 import "./Home.css";
 import React, { Component } from "react";
 import axios from "axios";
+import ChatWeb from "./chat"
 
 
 
@@ -12,7 +13,6 @@ class Home extends Component {
           Year: "",
           Year2:"",
           playerStats: {},
-          
         };
       }
       nextPath(path) {
@@ -35,29 +35,22 @@ class Home extends Component {
         } else {
           alert("Introduce un nombre");
         }
-        
       };
-
-     /*  */
+      
       getYear = (Year) => {
         this.state.year = Year;
       };
-
-      comparar = () => {
-        if(this.state.Year === 2020){
-          alert("Nuenos dias")
-        }
-      }
+       
       
-    
-
+      
+   
       getPlayerId = () => {
         axios
           .get(
             `https://www.balldontlie.io/api/v1/players?search=${this.state.playerName}`
           )
           .then(async (res) => {
-
+            // console.log(res.data.data)
             if (res.data.data[0] === undefined) {
               alert("Este jugador no esta disponible");
             } else if (res.data.data.length > 1) {
@@ -84,7 +77,22 @@ class Home extends Component {
             console.log(err);
           });
       };
+    /*
+      getPlayerStats2 = (playerId) => {
+        axios
+          .get(
+            `https://www.balldontlie.io/api/v1/season_averages?season=${this.state.Year2}&player_ids[]=${playerId}`
+          )
+          .then(async (res) => {
+            console.log(res.data.data);
+            this.setState({ playerStats2: res.data.data[0] });
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+      };
     
+    */
     
       render() {
         return (
@@ -116,8 +124,6 @@ class Home extends Component {
                     }}
                     type="text"
                     id="anio"
-                    min="1975"
-                    max="2020"
                     placeholder="años inferiores a 2021"
                   />
                   
@@ -127,7 +133,25 @@ class Home extends Component {
     
                 <input type="submit" value="Buscar" />
     
-    {}
+    {/*
+                <div class="form-group mr-5 ml-5">
+                  <label for="exampleFormControlInput1" id="texto">
+                    Año
+                  </label>
+    
+                  <input
+                    value={this.state.Year2}
+                    onChange={(e) => {
+                      this.setState({ Year2: e.target.value });
+                    }}
+                    type="text"
+                    id="anio"
+                    placeholder="numeros inferiores a 2021"
+                  />
+                </div>
+    
+                <input type="submit" value="Comparar"/>
+    */ }
 
               </form>
             </div>
@@ -180,7 +204,12 @@ class Home extends Component {
             </div>
     
     
-          {}
+          {/*  <div class="nav justify-content-end mr-5">
+              <button class="btn btn-danger" onClick={() => Home.auth().signOut()}>Chat Comunitario</button>
+            </div> 
+                        <h3 class="mr-5">Entra e Inicia sesion con Google para acceder al chat</h3>
+
+            */}
             <div class=" row align-items-center" id="entrarChat">
             <button
               type="submit"

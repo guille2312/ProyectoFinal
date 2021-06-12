@@ -10,7 +10,12 @@ import 'firebase/analytics';
 
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useCollectionData } from 'react-firebase-hooks/firestore';
-import { Link } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 
 
   if (!firebase.apps.length) {
@@ -65,7 +70,7 @@ import { Link } from "react-router-dom";
   
     return (
       <>
-        <button className="sign-in" onClick={signInWithGoogle}>Inicia sesión con Google</button>
+        <button className="sign-in" onClick={signInWithGoogle}>Sign in with Google</button>
       </>
     )
   
@@ -134,7 +139,7 @@ import { Link } from "react-router-dom";
   
     return (<>
       <div className={`message ${messageClass}`}>
-        <img src={photoURL} />
+        <img src={photoURL || 'https://api.adorable.io/avatars/23/abott@adorable.png'} />
         <p>{text}</p>
       </div>
     </>)
