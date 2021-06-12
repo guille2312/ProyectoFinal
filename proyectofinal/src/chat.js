@@ -10,12 +10,7 @@ import 'firebase/analytics';
 
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { useCollectionData } from 'react-firebase-hooks/firestore';
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Link
-} from "react-router-dom";
+import { Link } from "react-router-dom";
 
 
   if (!firebase.apps.length) {
@@ -139,7 +134,7 @@ import {
   
     return (<>
       <div className={`message ${messageClass}`}>
-        <img src={photoURL || 'https://api.adorable.io/avatars/23/abott@adorable.png'} />
+        <img src={photoURL} />
         <p>{text}</p>
       </div>
     </>)
